@@ -1,0 +1,5 @@
+iframe.ytb-embed {
+max-width: 96% !important;
+display: block;
+margin: 10px auto;
+}
