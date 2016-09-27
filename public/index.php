@@ -103,9 +103,9 @@ and open the template in the editor.
                 <h1 class="icon-cloud-1">SONGSKY</h1>
                 <div id="nav">
                   <ul>
-                    <li><a href="#">Home</a></li> 
+                    <li><a href="index.php">Home</a></li> 
                     <li><a href="Login.php">Login</a></li>
-                    <li><a href="#">Registrate</a></li>
+                    <li><a href="registro.php">Registrate</a></li>
                     <li><a href="#">About</a></li>
                   </ul>
                 </div>  
