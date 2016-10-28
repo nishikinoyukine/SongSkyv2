@@ -49,7 +49,7 @@ win = window.open(mypage,myname,settings)
            
             <div class="usertext">                
                    <a href='Index.jsp'></h1></a>                   
-                    <h1>¡Hola de nuevo Invitado! </h1>
+                    <h1>¡Hola de nuevo PokecenterDj! </h1>
 
                 </div>  
             <p id="recuerda">¡Recuerda que puedes empezar tu nueva experiencia Premium en tan solo unos pasos!</p>
@@ -106,7 +106,7 @@ win = window.open(mypage,myname,settings)
                     </div>
 
                         <div class="info-generos">
-                         <a href="createlist.jsp"><img src="IMG/list1.jpg" alt=""></a>
+                         <a href="Createlist.php"><img src="IMG/list1.jpg" alt=""></a>
                          <h5>Agregar Nueva Lista</h5> 
                          </div>
                          </div>   
@@ -233,8 +233,8 @@ win = window.open(mypage,myname,settings)
                 <div id="nav">
                   <ul>
                     <li><a href="index.php">Home</a></li> 
-                    <li><a href="Login.php">Login</a></li>
-                    <li><a href="registro.php">Registrate</a></li>
+                    <li><a href="editardatos.php">Editar</a></li>
+                    <li><a href="Carrito.php">Carrito</a></li>
                     <li><a href="#">About</a></li>
                   </ul>
                 </div>  
