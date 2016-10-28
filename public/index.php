@@ -31,7 +31,7 @@ and open the template in the editor.
             <div class="container">
                 <h2>Musica a tu manera</h2>
                 <p>Escucha tus canciones favoritas como nunca antes</p>
-                <a href="#">Premium</a>
+                <a href="registro.php">Premium</a>
             </div>               
             </section> 
             

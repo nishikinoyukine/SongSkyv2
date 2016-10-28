@@ -71,37 +71,37 @@ win = window.open(mypage,myname,settings)
                 <h3>Playlist</h3>
                 <div class="containergeneros">
                     <div class="info-generos">
-                        <a href="jsp/repmusica.jsp?idp=1" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list2.jpg"></a>
+                        <a href="php/repmusica.php?idp=1" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list2.jpg"></a>
                         <h5>PokeLista1</h5> 
                     </div>
                     
                      <div class="info-generos">
-                     <a href="jsp/repmusica.jsp?idp=2" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list3.jpg"></a>
+                     <a href="php/repmusica.php?idp=2" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list3.jpg"></a>
                          <h5>PokeLista2</h5> 
                     </div>
                     
                      <div class="info-generos">
-                     <a href="jsp/repmusica.jsp?idp=3" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list4.jpg"></a>
+                     <a href="php/repmusica.php?idp=3" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list4.jpg"></a>
                          <h5>PokeLista3</h5> 
                     </div>
                     
                      <div class="info-generos">
-                        <a href="jsp/repmusica.jsp?idp=4" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list5.jpg"></a>
+                        <a href="php/repmusica.php?idp=4" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list5.jpg"></a>
                          <h5>PokeLista4</h5> 
                     </div>
                     
                      <div class="info-generos">
-                        <a href="jsp/repmusica.jsp?idp=5" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list6.jpg"></a>
+                        <a href="php/repmusica.php?idp=5" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list6.jpg"></a>
                          <h5>PokeLista5</h5> 
                     </div>
                     
                      <div class="info-generos">
-                        <a href="jsp/repmusica.jsp?idp=6" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list7.jpg"></a>
+                        <a href="php/repmusica.php?idp=6" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list7.jpg"></a>
                          <h5>PokeLista7</h5> 
                     </div>
                     
                      <div class="info-generos">
-                        <a href="jsp/repmusica.jsp?idp=7" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list8.jpg"></a>
+                        <a href="php/repmusica.php?idp=7" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list8.jpg"></a>
                          <h5>PokeLista8</h5> 
                     </div>
 
