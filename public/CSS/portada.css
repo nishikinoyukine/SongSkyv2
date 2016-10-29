@@ -271,6 +271,8 @@ textarea{
 }
 
 
+/*
+DE MOMENTO SE DEJÓ DE USAR; REEMPLAZO POR DOS CLASES DEL MISMO NOMBRE; VER LA CSS "STYLE SUPPORT"
 #usercomentario{
      margin-top:-5%;
     margin-left: 25%;
@@ -290,7 +292,7 @@ textarea{
     color: darkgrey;
     text-align: left;
     background: #1F1F1F;
-}
+}*/
 
 
 
