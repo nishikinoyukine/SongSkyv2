@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="CSS/menuser.css">  
         <link rel="stylesheet" href="CSS/publicidad.css"> 
         <link rel="stylesheet" href="CSS/infomusica.css"> 
+        <link rel="stylesheet" href="CSS/styleSupport.css">
              <!--[if lte IE 8]><script src="js/respond.js"></script><![endif]-->
         <script src="js/responsive-nav.js"></script>
         <link rel="stylesheet" href="CSS/styles.css">  
@@ -41,12 +42,13 @@
         <div class="resumen">
         <caption>01. Reporte</caption>
             </div>
+        <br>
         
         
         
         
-        
-        
+        <div class="contieneReporte">
+
         <section id="tablareporte">     
             
             <table id="filtro"  width="40%"  >
@@ -90,7 +92,7 @@
             
         </section>
         
-            
+            </div>
             
             
             

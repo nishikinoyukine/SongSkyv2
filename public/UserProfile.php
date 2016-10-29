@@ -25,83 +25,92 @@ settings =
 win = window.open(mypage,myname,settings)             
 }
 </script>
-
     </head>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------
+                                                                                    YA CON ESTILO CORREGIDO
+     ----------------------------------------------------------------------------------------------------------------------------------------    -->
     <body>
         <main>
-             <section id="busqueda">
+        <br><br>
+            <section id="busqueda">
                         <!--<div><input class="homebtn" type="image" src="IMG/home2.png" height="50" width="50" name="commit" onclick="VolverHome()"></div>Agregado 16 de Septiembre, apv; Botón para volver al main; relacionada con css y js SUPPORT-->
 
-                        <form action="Buscador.php" method="get">	                           
-                        <input type="search" name="BUSCAR" placeholder="Audio o Artista"><i class="icon-search" ></i>	                           
+                <form action="Buscador.php" method="get">	                           
+                    <input type="search" name="BUSCAR" placeholder="Audio o Artista"><i class="icon-search" ></i>	                           
                 </form>           
-                </section>               
+            </section>               
             <section id="portada">
-            <img src="IMG/lumiose_city_artwork.png">       
+                <img src="IMG/lumiose_city_artwork.png">       
             </section>            
             <section id="batman">
-            <div class="foto">
+                <div class="foto">
                    <img src="IMG/PokeRadioStation.jpg" height="200" width="200" class="imagen" />                                
-                   </div>
-                
-                
+                </div>
             </section>
            
             <div class="usertext">                
-                   <a href='Index.jsp'></h1></a>                   
-                    <h1>¡Hola de nuevo PokecenterDj! </h1>
+                <a href='Index.jsp'></h1></a>                   
+                <h1>¡Hola de nuevo PokecenterDj! </h1>
+            </div> 
 
-                </div>  
             <p id="recuerda">¡Recuerda que puedes empezar tu nueva experiencia Premium en tan solo unos pasos!</p>
 
             <section id="publicidad">
-       
                 <hr color="dodgerblue" size=1>
-                        <div class="menudes">
-                        <a href="EditorMusic.php">Administrar Grabaciones</a>
-                        <a href="UploadMusic.php">Subir Contenido</a>
-                        <a href="Reporte.php">Reporte de Ventas</a>
-                        <div class="marca"></div>
-                        </div>
-                 
+                <div class="menudes">
+                    <a href="editarmusic.php">Administrar Grabaciones</a>
+                    <a href="subirmusica.php">Subir Contenido</a>
+                    <a href="reporte.php">Reporte de Ventas</a>
+                    <div class="marca"></div>
+                </div>
 			</section>
 
-			               <p id="idp" hidden="true" value="0">idm</p>
-                 <section id="generosmusic">
+		<p id="idp" hidden="true" value="0">idm</p>
+
+<br>
+
+<section id="generosmusic">
                 <h3>Playlist</h3>
                 <div class="containergeneros">
                     <div class="info-generos">
                         <a href="php/repmusica.php?idp=1" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list2.jpg"></a>
+                        
                         <h5>PokeLista1</h5> 
                     </div>
                     
                      <div class="info-generos">
                      <a href="php/repmusica.php?idp=2" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list3.jpg"></a>
+                    
                          <h5>PokeLista2</h5> 
                     </div>
                     
                      <div class="info-generos">
                      <a href="php/repmusica.php?idp=3" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list4.jpg"></a>
+                    
                          <h5>PokeLista3</h5> 
                     </div>
                     
                      <div class="info-generos">
                         <a href="php/repmusica.php?idp=4" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list5.jpg"></a>
+                        
                          <h5>PokeLista4</h5> 
                     </div>
                     
                      <div class="info-generos">
                         <a href="php/repmusica.php?idp=5" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list6.jpg"></a>
+                       
                          <h5>PokeLista5</h5> 
                     </div>
                     
                      <div class="info-generos">
                         <a href="php/repmusica.php?idp=6" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list7.jpg"></a>
+                       
                          <h5>PokeLista7</h5> 
                     </div>
                     
                      <div class="info-generos">
                         <a href="php/repmusica.php?idp=7" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list8.jpg"></a>
+                        
                          <h5>PokeLista8</h5> 
                     </div>
 
@@ -110,122 +119,116 @@ win = window.open(mypage,myname,settings)
                          <h5>Agregar Nueva Lista</h5> 
                          </div>
                          </div>   
-
-                
-            
               <hr color="dodgerblue" size=1>
-            
 </section>
 
+<br><br>
+
 <section id="artistas">
-                <h4>Las Mas Nuevas</h4>
-                <div class="containerartistas">
-                    <div class="info-artistas">
-                        <img src="IMG/NotesVortex.jpg" alt="">
-                        <h5>PokeSong1</h5> 
-                    </div>
+        <h4>Las Mas Nuevas</h4>
+        <div class="containerartistas">
+            <div class="info-artistas">
+                <img src="IMG/NotesVortex.jpg" alt="">
+                <h5>PokeSong1</h5> 
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/rose-min.jpg" alt="">
-                        <h5>PokeSong2</h5> 
-                    </div>
+            <div class="info-artistas">
+                <img src="IMG/rose-min.jpg" alt="">
+                <h5>PokeSong2</h5> 
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/NotesVortex.jpg" alt="">
-                        <h5>PokeSong3</h5> 
-                    </div>
+            <div class="info-artistas">
+                <img src="IMG/NotesVortex.jpg" alt="">
+                <h5>PokeSong3</h5> 
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/rose-min.jpg" alt="">
-                        <h5>PokeSong4</h5> 
-                    </div>
+            <div class="info-artistas">
+                <img src="IMG/rose-min.jpg" alt="">
+                <h5>PokeSong4</h5> 
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/NotesVortex.jpg" alt="">
-                        <h5>PokeSong5</h5>  
-                    </div>
+            <div class="info-artistas">
+                <img src="IMG/NotesVortex.jpg" alt="">
+                <h5>PokeSong5</h5>  
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/rose-min.jpg" alt="">
-                        <h5>PokeSong7</h5>  
-                    </div>
+            <div class="info-artistas">
+                <img src="IMG/rose-min.jpg" alt="">
+                <h5>PokeSong7</h5>  
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/NotesVortex.jpg" alt="">
-                        <h5>PokeSong8</h5>  
-                    </div>
+            <div class="info-artistas">
+                <img src="IMG/NotesVortex.jpg" alt="">
+                <h5>PokeSong8</h5>  
+            </div>
                     
-                     <div class="info-artistas">
-                        <img src="IMG/rose-min.jpg" alt="">
-                        <h5>PokeSong9</h5> 
-                    </div>
-                <hr color="dodgerblue" size=1>
-                </div>
-                
-                 <hr color="dodgerblue" size=1>
-            </section>
+            <div class="info-artistas">
+                <img src="IMG/rose-min.jpg" alt="">
+                <h5>PokeSong9</h5> 
+            </div>
+            <hr color="dodgerblue" size=1>
+        </div>
 
- <hr color="dodgerblue" size=1>
-                    
-  
-                     <form  name='comenta' action="jsp/comenta.php" method="post" >
-                     <section id="comentarios" style="display:inline-block">
-                         
-                         <div class="comments" style="display:inline-block">
-                         <h6>Caja De Comentarios</h6>
-                          
-                    <textarea name='comentario' rows='15' cols='40'>Deja un comentario a Invitado ... </textarea>
-                   
-                         
-                         <a href="#" class="button blue medium radius">
-		<span  class="icon-comment-empty" onclick="comenta.submit()">Enviar</span>
-                
-	</a>
-    </div>   
-                
-                       <div class="listacomentarios"  style="display:inline-block">
-                        
-                         
-                        
-                            <table id="usercomentario" width="40%" cellspacing="10" cellpadding="2">
-                         
-  <tr>
-      <th><i class="icon-user">Anony1</i></th>
-      <th></th>
-      <th></th>
 
-  </tr>
-    </table> 
-                           
-      <table id="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
-   <tr>
-    <th>Comento algo Gracioso</th>
-  </tr>
-</table>
-                      
-                            <table id="usercomentario" width="40%" cellspacing="10" cellpadding="2">
-                        
-  <tr>
-      <th><i class="icon-user">Anony2</i></th>
-      <th></th>
-      <th></th>
-      
-      
-  </tr>
-    </table> 
-                           
-      <table id="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
-   <tr>
-    <th>soy un anonimo xD</th>
-  </tr>
-</table>
-                  
-                        
-    </div>              
-           
-            
-                     </section>
+
+
+    <hr color="dodgerblue" size=1>
+</section>
+
+    <hr color="dodgerblue" size=1>
+
+<!--     ----------------------------------------------------------------------------------------------------------------------     -->
+
+<!--<form  name='comenta' action="jsp/comenta.php" method="post" >-->
+<form  name='comenta' action="index.php" method="post" >
+    <section id="comentarios" style="display:inline-block">
+                         
+        <div class="seccionComenta" style="display:inline-block">
+            <h6>Caja De Comentarios</h6>                  
+            <textarea class="txaCom" name='comentario' rows='15' cols='40' placeholder="Deja un comentario a Invitado ..."></textarea>
+            <a href="#" class="button blue medium radius">
+	           <span  class="icon-comment-empty" onclick="comenta.submit()">Enviar</span>        
+            </a>
+        </div> 
+
+
+<!--     ----------------------------------------------------------------------------------------------------------------------     -->
+        
+        <br>
+
+        <div class="listacomentarios"  style="display:inline-block">
+            <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">             
+                <tr>
+                    <th><i class="icon-user">Anony1</i></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+
+            <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
+                <tr>
+                    <th>Comento algo Gracioso</th>
+                </tr>
+            </table>
+
+            <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">        
+                <tr>
+                    <th><i class="icon-user">Anony2</i></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+
+            <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
+                <tr>
+                    <th>soy un anonimo xD</th>
+                </tr>
+            </table>            
+        </div>    
+    </section>
 </form> 
+
+<br><br>
 
 <header>
             <div class="contenedor">
@@ -233,6 +236,8 @@ win = window.open(mypage,myname,settings)
                 <div id="nav">
                   <ul>
                     <li><a href="index.php">Home</a></li> 
+                    <!--<li><a href="Login.php">Login</a></li>
+                    <li><a href="registro.php">Registrate</a></li>-->
                     <li><a href="editardatos.php">Editar</a></li>
                     <li><a href="Carrito.php">Carrito</a></li>
                     <li><a href="#">About</a></li>

@@ -31,13 +31,17 @@ and open the template in the editor.
             <div class="container">
                 <h2>Musica a tu manera</h2>
                 <p>Escucha tus canciones favoritas como nunca antes</p>
-                <a href="registro.php">Premium</a>
+                <a href="#">Premium</a>
             </div>               
             </section> 
             
             <section id="bienvenidos">
+
+            <br>
+
                 <hr color="dodgerblue" size=1>
-                <p id='invitado' > BIENVENIDO: <a href='index.php'> Invitado.</a> </p>        
+                <p id='invitado' > BIENVENIDO: <a href='index.php'> Invitado.</a> </p>  
+                <br>      
                 <h2>Encuentra y crea tus playlist favoritos en un solo click</h2>     
             </section>
             
@@ -61,6 +65,7 @@ and open the template in the editor.
                 
              <section id="artistas">
                 <audio id="player" src="#" hidden="true"> </audio>
+                <br>
                 <h4>Nuevas Canciones</h4>
                 <div class="containerartistas">
                     <div class="info-artistas">
@@ -96,6 +101,9 @@ and open the template in the editor.
                 </div>
                 
                  <hr color="dodgerblue" size=1>
+
+                 <br>
+
             </section> 
             
             <header>

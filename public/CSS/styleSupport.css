@@ -12,3 +12,79 @@
   .contienebtnH{
     margin-left: 50%;
   }
+
+  .seccionComenta{
+    margin-left: 7vw;
+    margin-top: 4vh;
+  }
+
+  .txaCom{
+    width: 70vw;
+    height: 20vw;
+    margin-right: 0vw;
+    margin-bottom: 4vh;
+  }
+
+
+  .usercomentario{
+    margin-top: 4vh;
+    margin-left: 10vw;
+    width: 50vh;
+    font-family: sans-serif;
+    color: cadetblue;
+    text-align: left;
+  }
+
+  .publicacion{ 
+    margin-bottom:5vh;
+    margin-top: 2vh;
+    margin-left: 10vw;
+    width: 50vh;
+    font-family: inherit;
+    color: darkgrey;
+    text-align: left;
+    background: #1F1F1F;
+  }
+
+  .contieneFormR{
+    margin-top: 32vh;
+  }
+
+  .contieneReporte{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 10vh;
+  }
+
+  .contieneCreaLista{
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+
+  .dentroCreaLista{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    margin-left: 4vw;
+    margin-right: 4vw;
+  }
+
+  .estiloDiv01{
+    border-style: solid;
+    border-color: #00FFFF;
+    border-width: 5px;
+  }
+
+  .contieneBusqueda{/*siempre no se usa*/
+    margin-top: 0vh;
+  }
+
+  .busqMarq{/*tampoco se usa*/
+    margin-left: 30vw;
+  }
+
+  .contieneTablaCarrito{
+    margin-left: 10vw;
+    margin-top: 5vh;
+  }

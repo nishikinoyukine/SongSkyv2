@@ -4,18 +4,18 @@
         <title>SONGSKY</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-        <link rel="stylesheet" href="css/fontello.css">
-        <link rel="stylesheet" href="css/userprofile.css">
-        <link rel="stylesheet" href="css2/portada.css"> 
-        <link rel="stylesheet" href="css/menuser.css">  
-        <link rel="stylesheet" href="css/publicidad.css"> 
-        <link rel="stylesheet" href="css/infomusica.css"> 
+        <link rel="stylesheet" href="CSS/fontello.css">
+        <link rel="stylesheet" href="CSS/userprofile.css">
+        <link rel="stylesheet" href="CSS/portada.css"> 
+        <link rel="stylesheet" href="CSS/menuser.css">  
+        <link rel="stylesheet" href="CSS/publicidad.css"> 
+        <link rel="stylesheet" href="CSS/infomusica.css"> 
              <!--[if lte IE 8]><script src="js/respond.js"></script><![endif]-->
         <script src="js/responsive-nav.js"></script>
         <link rel="stylesheet" href="CSS/styles.css">  
     
-        <link rel="stylesheet" href="css2/reporte.css">
-         <link rel="stylesheet" href="css2/editormusica.css"> 
+        <link rel="stylesheet" href="CSS/reporte.css">
+         <link rel="stylesheet" href="CSS/editormusica.css"> 
     </head>
     <body>
     <main>
@@ -44,17 +44,8 @@
             </div>
         
         
-        
-    
-    
-        
-        
-        
      <div class="contenido">
-			
-            
-            <hr>
-           
+			<br><br>
 			<div class="formulario">
 			    <form method="post" action="UserProfile.php" ENCTYPE="multipart/form-data">
 			        Archivo: 
@@ -70,7 +61,7 @@
 			        </select><br><br>
 			           Precio:
 			            <input type="text" name="precio"><br><br>
-			            <a href="UserProfile.php"><img src="IMG/cancelarbtn.png" alt="" width="200"></a>
+			            <a href="UserProfile.php"><img src="IMG/cancelarbtn_02.png" alt="" width="200"></a>
                                     <input type="image" src="IMG/ready.png" alt="Submit Form" width="200" />
 			          
 			        
