@@ -128,8 +128,8 @@ h3{
 
 #tablareporte {
   align-content: center;
-    margin-left: 10%;
-    margin-bottom: 19%;
+    /*margin-left: 10%;
+    margin-bottom: 19%;*/
   border: 5px solid #0CACC1;
   border-collapse: collapse;
 }

@@ -36,8 +36,12 @@ and open the template in the editor.
             </section> 
             
             <section id="bienvenidos">
+
+            <br>
+
                 <hr color="dodgerblue" size=1>
-                <p id='invitado' > BIENVENIDO: <a href='index.php'> Invitado.</a> </p>        
+                <p id='invitado' > BIENVENIDO: <a href='index.php'> Invitado.</a> </p>  
+                <br>      
                 <h2>Encuentra y crea tus playlist favoritos en un solo click</h2>     
             </section>
             
@@ -61,6 +65,7 @@ and open the template in the editor.
                 
              <section id="artistas">
                 <audio id="player" src="#" hidden="true"> </audio>
+                <br>
                 <h4>Nuevas Canciones</h4>
                 <div class="containerartistas">
                     <div class="info-artistas">
@@ -96,6 +101,9 @@ and open the template in the editor.
                 </div>
                 
                  <hr color="dodgerblue" size=1>
+
+                 <br>
+
             </section> 
             
             <header>
@@ -103,9 +111,9 @@ and open the template in the editor.
                 <h1 class="icon-cloud-1">SONGSKY</h1>
                 <div id="nav">
                   <ul>
-                    <li><a href="#">Home</a></li> 
+                    <li><a href="index.php">Home</a></li> 
                     <li><a href="Login.php">Login</a></li>
-                    <li><a href="#">Registrate</a></li>
+                    <li><a href="registro.php">Registrate</a></li>
                     <li><a href="#">About</a></li>
                   </ul>
                 </div>  
