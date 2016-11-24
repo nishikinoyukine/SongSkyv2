@@ -20,7 +20,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">Correo Electronico</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -51,7 +51,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> Remember Me
+                                        <input type="checkbox" name="remember"> Recordar
                                     </label>
                                 </div>
                             </div>
@@ -64,13 +64,15 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
+                                    Olvidaste tu Password?
                                 </a>    
-      
-      <br>
-      <div><input class="homebtn2" type="image" src="IMG/home2.png" height="50" width="50" href="{{ url('/home') }}"></div><!--Agregado 16 de Septiembre, apv; Botón para volver al main; relacionada con css y js SUPPORT-->
+                                </div>
+                                </div>
 
-    </div>
+      </form>
+      <br>      
+      </div>
+      <div><a href="{{ url('/') }}"><input class="homebtn2" type="image" src="IMG/home2.png" height="50" width="50"></a></div><!--Agregado 16 de Septiembre, apv; Botón para volver al main; relacionada con css y js SUPPORT-->
             
             
             

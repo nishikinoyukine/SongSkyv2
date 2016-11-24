@@ -109,7 +109,7 @@
                 <h1 class="icon-cloud-1">SONGSKY</h1>
                 <div id="nav">
                   <ul>
-                    <li><a href="index.php">Home</a></li> 
+                    <li><a href="{{ url('/') }}">Home</a></li> 
                     @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a <a href="{{ url('/register') }}">Registrate</a></li>

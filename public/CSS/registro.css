@@ -45,7 +45,7 @@ p#titulo2{
     padding-top: 3px;
 }
 
-input[type="text"], input[type="mail"] , input[type="password"] {
+input[type="text"], input[type="email"] , input[type="password"] {
 
     width: 350px;
     height: 35px;
@@ -66,8 +66,9 @@ input[type="text"], input[type="mail"] , input[type="password"] {
 
 
 
-input[type="submit"]{
-    margin: 20px;
+.btn-primary{
+    
+    margin-left: 260px;
     padding-bottom: 2px;
     width: 350px;
     height: 35px;

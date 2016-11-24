@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/editPi';
 
     /**
      * Create a new controller instance.
@@ -64,6 +64,10 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'Personal_Image' => $data['name'],
+            'Banner_Image' => $data['name'],
+            'Sexo' => $data['sexo'],
+            'Fecha_Nacimiento' =>  $data['fecha'] ,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

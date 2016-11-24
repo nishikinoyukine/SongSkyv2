@@ -38,33 +38,34 @@ win = window.open(mypage,myname,settings)
                 <form action="Buscador.php" method="get">	                           
                     <input type="search" name="BUSCAR" placeholder="Audio o Artista"><i class="icon-search" ></i>	                           
                 </form>           
-            </section>               
+            </section>   
+
             <section id="portada">
-                <img src="IMG/lumiose_city_artwork.png">       
+                <img src="upload/{{ Auth::user()->Banner_Image }}">       
             </section>            
             <section id="batman">
                 <div class="foto">
-                   <img src="IMG/PokeRadioStation.jpg" height="200" width="200" class="imagen" />                                
+                   <img src="upload/{{ Auth::user()->Personal_Image }}" height="200" width="200" class="imagen" />                                
                 </div>
             </section>
            
             <div class="usertext">                
-                <a href='Index.jsp'></h1></a>                   
-                <h1>¡Hola de nuevo PokecenterDj! </h1>
+                <h1>¡Hola de nuevo {{ Auth::user()->name }} ! </h1>
             </div> 
 
             <p id="recuerda">¡Recuerda que puedes empezar tu nueva experiencia Premium en tan solo unos pasos!</p>
 
-            <section id="publicidad">
+            
+             @if (Auth::guest())
+             @else
                 <hr color="dodgerblue" size=1>
                 <div class="menudes">
-                    <a href="editarmusic.php">Administrar Grabaciones</a>
-                    <a href="subirmusica.php">Subir Contenido</a>
-                    <a href="reporte.php">Reporte de Ventas</a>
+                    <a href="editM">Administrar Grabaciones</a>
+                    <a href="uploadM">Subir Contenido</a>
+                    <a href="EditPi">Edicion de Imagenes Perfil</a>
                     <div class="marca"></div>
                 </div>
-			</section>
-
+                @endif
 		<p id="idp" hidden="true" value="0">idm</p>
 
 <br>
@@ -230,16 +231,27 @@ win = window.open(mypage,myname,settings)
 
 <br><br>
 
-<header>
+ <header>
             <div class="contenedor">
                 <h1 class="icon-cloud-1">SONGSKY</h1>
                 <div id="nav">
                   <ul>
-                    <li><a href="index.php">Home</a></li> 
-                    <!--<li><a href="Login.php">Login</a></li>
-                    <li><a href="registro.php">Registrate</a></li>-->
-                    <li><a href="editardatos.php">Editar</a></li>
-                    <li><a href="Carrito.php">Carrito</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li> 
+                    @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a <a href="{{ url('/register') }}">Registrate</a></li>
+                    @else
+                            <li><a href="{{ url('/Perfil') }}">Perfil</a></li>
+                            <li><a href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a></li>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                    @endif
                     <li><a href="#">About</a></li>
                   </ul>
                 </div>  
