@@ -26,7 +26,7 @@
             </section>  
         
             <div class="carritodecomprita">
-			     <a class="home" href="Index.jsp" title="Volver a Inicio"><i class="icon-home"></i></a>
+			     <a class="home" href="{{ url('/') }}" title="Volver a Inicio"><i class="icon-home"></i></a>
 			     <span class="navigation-pipe">&gt;</span>
 					Editar Cancion
             </div>
@@ -40,10 +40,17 @@
             <div class="contenido">
 			     <!--<hr>--><br><br>
 			     <div class="formulario">
-			        <form action="UserProfile.php" method="post">
-			            <select name="Namae" id="">
-			                 <option value="1" selected="selected">Pokemon sol</option>
-                        </select>
+
+			        <form class="form-horizontal" role="form" method="POST" action="{{ url('editupsong') }}">
+                        {{ csrf_field() }}
+			            <div class="form-group">
+  {!! Form::Label('item', 'Cancion:') !!}
+  <select class="form-control" name="item_id">
+    @foreach($items as $item)
+      <option value="{{$item->id}}">{{$item->Nombre}}</option>
+    @endforeach
+  </select>
+</div>
 
                     <br><br>
 			        
@@ -56,27 +63,40 @@
 			             </select><br><br>
 			             Precio:
 			             <input type="text" name="precio"><br><br>
-			             <a href="UserProfile.php"><img src="IMG/cancelarbtn_02.png" alt="" width="200"></a>
+			             <a href="{{ url('/Perfil') }}"><img src="IMG/cancelarbtn_02.png" alt="" width="200"></a>
 			             <input type="image" src="IMG/ready.png" alt="Submit Form" width="200" />
 			        
 			        </form>
 			    </div>			
 		    </div>
 
-            <header>
-                <div class="contenedor">
-                    <h1 class="icon-cloud-1">SONGSKY</h1>
-                    <div id="nav">
-                        <ul>
-                            <li><a href="index.php">Home</a></li> 
-                            <li><a href="Login.php">Login</a></li>
-                            <li><a href="registro.php">Registrate</a></li>
-                            <li><a href="#">About</a></li>
-                        </ul>
-                    </div>  
-                    <button id="nav-toggle">Menu</button>
-                </div>    
-            </header>
+             <header>
+            <div class="contenedor">
+                <h1 class="icon-cloud-1">SONGSKY</h1>
+                <div id="nav">
+                  <ul>
+                    <li><a href="{{ url('/') }}">Home</a></li> 
+                    @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a <a href="{{ url('/register') }}">Registrate</a></li>
+                    @else
+                            <li><a href="{{ url('/Perfil') }}">Perfil</a></li>
+                            <li><a href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a></li>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                    @endif
+                    <li><a href="#">About</a></li>
+                  </ul>
+                </div>  
+                <button id="nav-toggle">Menu</button>
+            </div>    
+        </header>
             
         </main>
         

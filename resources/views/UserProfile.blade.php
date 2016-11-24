@@ -16,6 +16,7 @@
          <link rel="stylesheet" href="CSS/demo.css"> 
          <link rel="stylesheet" href="CSS/styleSupport.css">
          <script src="js/responsive-nav.js"></script>
+         <script src="js/jquery.js"></script>
          <script language="javascript">
 function NewWindow(mypage,myname,w,h,scroll){
 LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
@@ -63,6 +64,9 @@ win = window.open(mypage,myname,settings)
                     <a href="editM">Administrar Grabaciones</a>
                     <a href="uploadM">Subir Contenido</a>
                     <a href="EditPi">Edicion de Imagenes Perfil</a>
+                    <a href="editData">Edicion de Datos</a>
+                    <a href="EditPi">Carrito de Compras</a>
+                    <a href="EditPi">Reportes</a>
                     <div class="marca"></div>
                 </div>
                 @endif
@@ -102,21 +106,9 @@ win = window.open(mypage,myname,settings)
                        
                          <h5>PokeLista5</h5> 
                     </div>
-                    
-                     <div class="info-generos">
-                        <a href="php/repmusica.php?idp=6" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list7.jpg"></a>
-                       
-                         <h5>PokeLista7</h5> 
-                    </div>
-                    
-                     <div class="info-generos">
-                        <a href="php/repmusica.php?idp=7" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list8.jpg"></a>
-                        
-                         <h5>PokeLista8</h5> 
-                    </div>
 
                         <div class="info-generos">
-                         <a href="Createlist.php"><img src="IMG/list1.jpg" alt=""></a>
+                         <a href="{{url('/makelist')}}"><img src="IMG/list1.jpg" alt=""></a>
                          <h5>Agregar Nueva Lista</h5> 
                          </div>
                          </div>   
@@ -126,55 +118,31 @@ win = window.open(mypage,myname,settings)
 <br><br>
 
 <section id="artistas">
-        <h4>Las Mas Nuevas</h4>
-        <div class="containerartistas">
-            <div class="info-artistas">
-                <img src="IMG/NotesVortex.jpg" alt="">
-                <h5>PokeSong1</h5> 
-            </div>
+                <audio id="player" src="#" hidden="true"> </audio>
+                <br>
+                <h4>Nuevas Canciones</h4>
+                <div class="containerartistas">
                     
-            <div class="info-artistas">
-                <img src="IMG/rose-min.jpg" alt="">
-                <h5>PokeSong2</h5> 
-            </div>
-                    
-            <div class="info-artistas">
-                <img src="IMG/NotesVortex.jpg" alt="">
-                <h5>PokeSong3</h5> 
-            </div>
-                    
-            <div class="info-artistas">
-                <img src="IMG/rose-min.jpg" alt="">
-                <h5>PokeSong4</h5> 
-            </div>
-                    
-            <div class="info-artistas">
-                <img src="IMG/NotesVortex.jpg" alt="">
-                <h5>PokeSong5</h5>  
-            </div>
-                    
-            <div class="info-artistas">
-                <img src="IMG/rose-min.jpg" alt="">
-                <h5>PokeSong7</h5>  
-            </div>
-                    
-            <div class="info-artistas">
-                <img src="IMG/NotesVortex.jpg" alt="">
-                <h5>PokeSong8</h5>  
-            </div>
-                    
-            <div class="info-artistas">
-                <img src="IMG/rose-min.jpg" alt="">
-                <h5>PokeSong9</h5> 
-            </div>
-            <hr color="dodgerblue" size=1>
-        </div>
+                    <?php $sum = 1; ?>
+                   @foreach($items as $item)
+                   <div class="info-artistas">
+                    <img id="Song{{$sum}}" src="upload/{{$item->url_image}}"  alt="">
+                        <h5>{{$item->Nombre}}</h5>
+                        <?php $sum += 1; ?>
+                        </div>
+                   @endforeach
+                   
+                   
 
+                    
+                <hr color="dodgerblue" size=1>
+                </div>
+                
+                 <hr color="dodgerblue" size=1>
 
+                 <br>
 
-
-    <hr color="dodgerblue" size=1>
-</section>
+            </section> 
 
     <hr color="dodgerblue" size=1>
 
@@ -280,6 +248,30 @@ win = window.open(mypage,myname,settings)
         customToggle: "#nav-toggle"
       });
     </script>
+
+       <script>
+  
+ function CargarSong(input) {
+  if (document.getElementById('player').paused) {
+          $('#player').attr('src', input);
+          document.getElementById('player').play();        
+      } else {
+        document.getElementById('player').pause();
+        document.getElementById('player').currentTime = 0
+      }
+}
+                  <?php $sum = 1; ?>
+                   @foreach($items as $item)
+                   $('#Song{{$sum}}').click(function() {
+                   $(this).toggleClass("down");
+                   CargarSong("upload/{{$item->url_song}}");
+                    });
+                        <?php $sum += 1; ?>
+                   @endforeach
+                     
+ 
+               
+                </script>
 
         <script src="js/scriptSupport.js"></script>           
     </body>

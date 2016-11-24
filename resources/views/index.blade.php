@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/menuser.css">
         <!--[if lte IE 8]><script src="js/respond.js"></script><![endif]-->
         <script src="js/responsive-nav.js"></script>
+        <script src="js/jquery.js"></script>
                
     </head>
     <body>
@@ -66,35 +67,19 @@
                 <br>
                 <h4>Nuevas Canciones</h4>
                 <div class="containerartistas">
-                    <div class="info-artistas">
-                        <img id="song1" src="IMG/rose-min.jpg"  alt="">
-                        <h5>test</h5> 
-                    </div>
-                 
-                     <div class="info-artistas">
-                        <img id="song2" src="IMG/NotesVortex.jpg" alt="">
-                         <h5>test</h5> 
-                    </div>
                     
-                     <div class="info-artistas">
-                        <img id="song3" src="IMG/rose-min.jpg" alt="">
-                         <h5>test</h5>  
-                    </div>
+                    <?php $sum = 1; ?>
+                   @foreach($items as $item)
+                   <div class="info-artistas">
+                    <img id="Song{{$sum}}" src="upload/{{$item->url_image}}"  alt="">
+                        <h5>{{$item->Nombre}}</h5>
+                        <?php $sum += 1; ?>
+                        </div>
+                   @endforeach
+                   
+                   
+
                     
-                     <div class="info-artistas">
-                        <img id="song4" src="IMG/NotesVortex.jpg" alt="">
-                         <h5>test</h5>                         
-                    </div>
-                    
-                     <div class="info-artistas">
-                        <img id="song5" src="IMG/rose-min.jpg" alt="">
-                         <h5>test</h5> 
-                    </div>
-                    
-                     <div class="info-artistas">
-                        <img id="song6" src="IMG/NotesVortex.jpg" alt="">
-                         <h5>test</h5> 
-                    </div>
                 <hr color="dodgerblue" size=1>
                 </div>
                 
@@ -153,6 +138,29 @@
         customToggle: "#nav-toggle"
       });
     </script>
+    <script>
+  
+ function CargarSong(input) {
+  if (document.getElementById('player').paused) {
+          $('#player').attr('src', input);
+          document.getElementById('player').play();        
+      } else {
+        document.getElementById('player').pause();
+        document.getElementById('player').currentTime = 0
+      }
+}
+                  <?php $sum = 1; ?>
+                   @foreach($items as $item)
+                   $('#Song{{$sum}}').click(function() {
+                   $(this).toggleClass("down");
+                   CargarSong("upload/{{$item->url_song}}");
+                    });
+                        <?php $sum += 1; ?>
+                   @endforeach
+                     
+ 
+               
+                </script>
             
     </body>
 </html>

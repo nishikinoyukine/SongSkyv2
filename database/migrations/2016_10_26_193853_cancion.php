@@ -18,7 +18,7 @@ class Cancion extends Migration
             $table->string('Nombre');
             $table->string('url_song');
             $table->string('url_image');
-            $table->boolean('premium');
+            $table->string('premium');
             $table->integer('precio');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

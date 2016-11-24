@@ -11,26 +11,40 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Route::get('/', function () {
+    //return view('index');
+//});
 
 Route::get('/EditPi', function () {
     return view('imgPerfil');
 });
 
-Route::get('/Perfil', function () {
-    return view('UserProfile');
-});
+//Route::get('/Perfil', function () {
+  //  return view('UserProfile');
+//});
 
 Route::get('/uploadM', function () {
     return view('subirmusica');
 });
 
-Route::get('/editM', function () {
-    return view('editarmusic');
+Route::get('/makelist', function () {
+    return view('CreateList');
 });
 
+Route::get('/editData', function () {
+    return view('editardatos');
+});
+
+Route::get('/SUamin', function () {
+    return view('Administrador');
+});
+
+Route::get('/Perfil', 'mainController@songpublicityperfil');
+Route::get('/', 'mainController@songpublicity');
+Route::post('editupsong', 'updataController@updatesong');
+Route::get('editM', 'updataController@create');
+Route::post('uploadmus', 'updataController@upmusic');
+Route::post('updateda', 'updataController@update');
 Route::post('uploadimg', 'uploadsimg@postSave');
 Route::post('uploadi', 'uploadsimg@save');
 Route::get('/home', 'logincontrol@index');
