@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','Personal_Image','Banner_Image','Fecha_Nacimiento','Sexo',
     ];
 
     /**
@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+      public function canciones()
+    {
+        return $this->hasMany('App\Musica');
+    }
 }
