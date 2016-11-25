@@ -10,6 +10,13 @@ use App\User;
 
 use App\Musica;
 
+use App\listarep;
+
+use App\listacon;
+
+use App\publicidad;
+
+
 use Auth;
 use View;
 
@@ -84,12 +91,65 @@ $cancion->save();
 return redirect('Perfil');
 }
 
-public function songpublicity()
+public function createlist(Request $request)
 {
-    $items = Musica::all();
-   //$items = Musica::all();
-    return View::make('editarmusic', compact('items',$items));
+
+$titulo= $request->input('nalis');
+$listrep = new listarep();
+// Seteamos las propiedades
+$listrep->Nombre = $titulo ;
+$listrep->user_id = Auth::user()->id ;
+$listrep->save();
+return redirect('makelist')->with('message', 'Lista Agregada Correctamente');;
 }
 
+public function filllistrep()
+{
+    $items = Musica::where('user_id',Auth::user()->id)->get();
+    $listas = listarep::where('user_id',Auth::user()->id)->get();
+   //$items = Musica::all();
+    return View::make('CreateList', compact('items',$items),compact('listas',$listas));
+}
+
+public function addtolist(request $request){
+ $lista= $request->input('lista_id');
+$cancion= $request->input('item_id');   
+$listcon = new listacon();
+// Seteamos las propiedades
+$listcon->lista_id = $lista;
+$listcon->cancion_id = $cancion;
+$listcon->user_id = Auth::user()->id ;
+
+$listcon->save();
+return redirect('makelist')->with('message', 'Cancion agragada a lista correctamente');;
+
+}
+
+public function loadadmin(request $request){
+
+$pub = publicidad::orderby('id','DESC')->take(1)->get();;
+return View::make('Administrador', compact('pub',$pub));
+
+
+}
+
+public function uploadpub(request $request){
+    $file = $request->file('Bannerp');
+            $nombre = $file->getClientOriginalName();
+             \Storage::disk('public')->put($nombre,  \File::get($file));
+ 
+$urlvideo= $request->input('videourl');
+// Creamos el objeto
+$publi = new publicidad();
+// Seteamos las propiedades
+$publi->url_video = $urlvideo ;
+$publi->url_banner = $nombre ;
+
+ 
+// Guardamos en la base de datos (equivalente al flush de Doctrine)
+$publi->save();
+return redirect('/');
+
+}
 
 }

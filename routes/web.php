@@ -11,8 +11,8 @@
 |
 */
 
-//Route::get('/', function () {
-    //return view('index');
+//Route::get('reproductor', function () {
+    //return view('repmusica');
 //});
 
 Route::get('/EditPi', function () {
@@ -27,18 +27,22 @@ Route::get('/uploadM', function () {
     return view('subirmusica');
 });
 
-Route::get('/makelist', function () {
-    return view('CreateList');
-});
+
 
 Route::get('/editData', function () {
     return view('editardatos');
 });
 
-Route::get('/SUamin', function () {
-    return view('Administrador');
-});
+//Route::get('/SUamin', function () {
+  //  return view('Administrador');
+//});
 
+Route::post('addpub', 'updataController@uploadpub');
+Route::get('SUamin', 'updataController@loadadmin');
+Route::get('/reproductor', 'mainController@fillreproductor');
+Route::post('addtolist', 'updataController@addtolist');
+Route::get('makelist', 'updataController@filllistrep');
+Route::post('clist', 'updataController@createlist');
 Route::get('/Perfil', 'mainController@songpublicityperfil');
 Route::get('/', 'mainController@songpublicity');
 Route::post('editupsong', 'updataController@updatesong');
@@ -65,3 +69,4 @@ Route::get('upload/{archivo}', function ($archivo) {
      abort(404);
  
 });
+

@@ -1,10 +1,4 @@
-<%-- 
-    Document   : Administrador
-    Created on : 27/04/2016, 01:26:27 PM
-    Author     : Yukine Sugiura
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,68 +29,31 @@
          <hr color="dodgerblue" size=1>
                
                 
-                
-                
+         @php
 
-            
+function convertYoutube($string) {
+  return preg_replace(
+    "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+    "<iframe width=\"560\" height=\"390\" src=\"//www.youtube.com/embed/$2?autoplay=1&rel=0&showinfo=0&controls=1\" allowfullscreen></iframe>",
+    $string
+  );
+}      
+               
+@endphp
+ @foreach($pub as $item)
+{{ $text = $item->url_video }}  
+@endforeach      
           <section id="formulario"> 
-    <p id="titulo"><b><span class="icon-user"> BIENVENIDO A SONGSKY <%=session.getAttribute("name")%></span></b></p>
-    <p id="titulo2"><u><small>"Dejando siempre volar la imaginacion" </small></u></p>
-    
-
-    
-        <form METHOD=POST ENCTYPE="multipart/form-data" action="<%= request.getContextPath()%>/VideoS">
-    <p id="info"> SUBIR VIDEO</p>
-
-        <input type="file" id="VideoSemana" name="Videosx" >
-
+      <div>
+      <p id="info"> SUBIR VIDEO</p>
+        <p id="videosemana">Video de la semana Actual</p>
+                @php
+                echo convertYoutube($text);
+                @endphp
         </div>
-        <video id="videoprincipal" src="#" height="800" width="600" autoplay controls ></video> 
-
-                </div>   
-
-        
-        
-        
-            
-            
-		
-			
-		<p id="info">ADMINISTRAR HORARIOS</p>
-         <div id="registro" class="registro"> 
-             
-              <input type="date" id="time" name="timeI" >
-              <input type="date" id="time" name="timeF" >
-             
-             
-    
-   </div>
-         
-        
-		
-            
-    
-    <p id="info"> ADMINISTRAR CONTENIDO</p>
-            
-              
-              
-     
-         <p>Seleccionar contenido</p>
-        <select name="idpub">
-  <option  value="1">Pub.1</option>
-  <option value="2">Pub.2</option>
-  <option value="3">Pub.3</option>
-  <option value="4">Pub.4</option>
-   <option value="5">Pub.5</option>
-    <option value="6">Pub.6</option>
-</select>
-
-    
-    
-    
-    
-    
-     
+        <form METHOD=POST ENCTYPE="multipart/form-data" action="{{ url('addpub') }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <p>Url de Video de Portada</p><input type="text" name="videourl">
               
                <p id="info"> PORTADA PRINCIPAL </p>
               <div class="contenedor2">
@@ -111,7 +68,7 @@
     </div>
                      </form>
             
-         
+    </section>     
         
         
         
@@ -121,9 +78,22 @@
                 <h1 class="icon-cloud-1">SONGSKY</h1>
                 <div id="nav">
                   <ul>
-                    <li><a href="index.php">Home</a></li> 
-                    <li><a href="Login.php">Login</a></li>
-                    <li><a href="registro.php">Registrate</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li> 
+                    @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a <a href="{{ url('/register') }}">Registrate</a></li>
+                    @else
+                            <li><a href="{{ url('/Perfil') }}">Perfil</a></li>
+                            <li><a href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a></li>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                    @endif
                     <li><a href="#">About</a></li>
                   </ul>
                 </div>  
@@ -154,19 +124,7 @@
     </script>
         
          <script type="text/javascript" > 
-function mostrarVideo(input) {
- if (input.files && input.files[0]) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
-   $('#videoprincipal').attr('src', e.target.result);
-  }
-  reader.readAsDataURL(input.files[0]); //Llevame al error
- }
-}
- 
-$("#VideoSemana").change(function(){
- mostrarVideo(this);
-});
+
 
 function mostrarImagen(input) {
  if (input.files && input.files[0]) {
@@ -177,7 +135,7 @@ function mostrarImagen(input) {
   reader.readAsDataURL(input.files[0]); //Llevame al error
  }
 }
- 
+
 $("#bannerp").change(function(){
  mostrarImagen(this);
 });

@@ -21,32 +21,37 @@
   <section>
   <div>
     <div class="carritodecomprita">
-      <a class="home" href="index.php" title="Volver a Inicio"><i class="icon-home"></i></a>
+      <a class="home" href="{{ url('/') }}" title="Volver a Inicio"><i class="icon-home"></i></a>
       <span class="navigation-pipe">&gt;</span>
           Crear lista de reproduccion
     </div>
     <br>
 
-    <form id="addsong" name="addsong" action="#" method="post">
+    <form id="addsong" name="addsong" action="{{ url('addtolist') }}" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="estiloDiv01">
     <div class="dentroCreaLista">
       <h3>Agregar a Lista de Reproduccion</h3>
       <h2>Lista</h2>
-      <select name="Namalst" id="">
-			  <option value="1" selected='selected'>"Lista</option>
-      </select>
+  <select class="form-control" name="lista_id">
+    @foreach($listas as $lista)
+      <option value="{{$lista->id}}">{{$lista->Nombre}}</option>
+    @endforeach
+  </select>
 
       <br><br>   
  
       <h2>Canciones</h2>
-      <select name="Namae" id="">
-		    <option value="2" selected='selected'>Cancion de Prueba</option>
-      </select>
+  <select class="form-control" name="item_id">
+    @foreach($items as $item)
+      <option value="{{$item->id}}">{{$item->Nombre}}</option>
+    @endforeach
+  </select>
 
       <br><br>   
 
       <!--<input type="image" src="IMG/ready.png" onclick="submitForm('jsp/addtolist.jsp')" width="200" />-->
-      <input type="image" src="IMG/ready.png" onclick="submitForm('index.jsp')" width="200" />
+      <input type="image" src="IMG/ready.png" width="200" />
     </div>
     </div>
     </form>
@@ -57,53 +62,67 @@
   </div>
   
   <div>
-    <form>
+    <form action="{{ url('clist') }}" method="post">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="estiloDiv01">
       <div class="dentroCreaLista">
       <h3>Crear Lista de Reproduccion</h3><br>
       <input type="text" id="nalis" name="nalis" placeholder="Nombre de Lista"><br><br>
-      <input type="image" src="IMG/ready.png" onclick="submitForm('php/newlist.php')" width="200" /><br>
+      <input type="image" src="IMG/ready.png" width="200" /><br>
       </div></div>
     </form>
 
     <br><br>
-      <a href="UserProfile.php"><img src="IMG/cancelarbtn_02.png"width="200" /></a>
+      <a href="{{ url('/Perfil') }}"><img src="IMG/cancelarbtn_02.png"width="200" /></a>
     
   </div>
 
   <!--<input type="cancel" alt="cancel">-->
   </section>
 
-  <header>
-    <div class="contenedor">
-      <h1 class="icon-cloud-1">SONGSKY</h1>
-      <div id="nav">
-        <ul>
-        <li><a href="index.php">Home</a></li> 
-        <li><a href="Login.php">Login</a></li>
-        <li><a href="registro.php">Registrate</a></li>
-        <li><a href="#">About</a></li>
-        </ul>
-      </div>  
-      <button id="nav-toggle">Menu</button>
-    </div>    
-  </header>
-  </div>            
-</main>
+   <header>
+            <div class="contenedor">
+                <h1 class="icon-cloud-1">SONGSKY</h1>
+                <div id="nav">
+                  <ul>
+                    <li><a href="{{ url('/') }}">Home</a></li> 
+                    @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a <a href="{{ url('/register') }}">Registrate</a></li>
+                    @else
+                            <li><a href="{{ url('/Perfil') }}">Perfil</a></li>
+                            <li><a href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a></li>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                    @endif
+                    <li><a href="#">About</a></li>
+                  </ul>
+                </div>  
+                <button id="nav-toggle">Menu</button>
+            </div>    
+        </header>
+            
+        </main>
         
-<footer>
-  <div class="containerfooter">
-    <p class="copy">SONGSKY &copy; 2016.</p><br>
-    <p class="copy"> YukiSoft &reg; 2016.</p>
-    <div class="redessociales">
-      <a class="icon-facebook" href="#"></a>
-      <a class="icon-twitter" href="#"></a>
-      <a class="icon-youtube" href="#"></a>
-      <a class="icon-instagram" href="#"></a>
-      <a class="icon-vimeo" href="#"></a>
-    </div>
-  </div>    
-</footer> 
+        <footer>
+            <div class="containerfooter">
+                <p class="copy">SONGSKY &copy; 2016.</p><br>
+                <p class="copy"> YukiSoft &reg; 2016.</p>
+                <div class="redessociales">
+                    <a class="icon-facebook" href="#"></a>
+                    <a class="icon-twitter" href="#"></a>
+                    <a class="icon-youtube" href="#"></a>
+                    <a class="icon-instagram" href="#"></a>
+                    <a class="icon-vimeo" href="#"></a>
+                </div>
+            </div>    
+        </footer>
 
 <script>
   function submitForm(action){

@@ -77,35 +77,15 @@ win = window.open(mypage,myname,settings)
 <section id="generosmusic">
                 <h3>Playlist</h3>
                 <div class="containergeneros">
-                    <div class="info-generos">
-                        <a href="php/repmusica.php?idp=1" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list2.jpg"></a>
-                        
-                        <h5>PokeLista1</h5> 
+                    
+
+                    
+                   @foreach($listas as $lista)
+                   <div class="info-generos">
+                    <a href="{{url('reproductor')}}?idp={{$lista->id}}" title="PlayList" onclick="NewWindow(this.href,'name','320','500','yes');return false"><img src="IMG/unnamed.png"></a>
+                        <h5>{{$lista->Nombre}}</h5> 
                     </div>
-                    
-                     <div class="info-generos">
-                     <a href="php/repmusica.php?idp=2" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list3.jpg"></a>
-                    
-                         <h5>PokeLista2</h5> 
-                    </div>
-                    
-                     <div class="info-generos">
-                     <a href="php/repmusica.php?idp=3" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list4.jpg"></a>
-                    
-                         <h5>PokeLista3</h5> 
-                    </div>
-                    
-                     <div class="info-generos">
-                        <a href="php/repmusica.php?idp=4" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list5.jpg"></a>
-                        
-                         <h5>PokeLista4</h5> 
-                    </div>
-                    
-                     <div class="info-generos">
-                        <a href="php/repmusica.php?idp=5" title="PlayList" onclick="NewWindow(this.href,'name','240','500','yes');return false"><img src="IMG/list6.jpg"></a>
-                       
-                         <h5>PokeLista5</h5> 
-                    </div>
+                   @endforeach
 
                         <div class="info-generos">
                          <a href="{{url('/makelist')}}"><img src="IMG/list1.jpg" alt=""></a>

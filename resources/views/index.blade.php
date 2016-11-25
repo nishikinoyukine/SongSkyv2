@@ -22,7 +22,7 @@
         ?>
         <main>
             <section id="banner">
-                <img src="IMG/mak.png" alt="Banner"> 
+                <img src="upload/{{$ban}}" alt="Banner"> 
             <div class="container">
                 <h2>Musica a tu manera</h2>
                 <p>Escucha tus canciones favoritas como nunca antes</p>
@@ -36,9 +36,9 @@
             
                 <hr color="dodgerblue" size=1>
                  @if (Auth::guest())
-                <p id='invitado' > BIENVENIDO: <a href="{{ url('/') }}"> Invitado.</a> </p> 
+                <p id='invitado' > BIENVENIDO: Invitado </p> 
                 @else
-                <p id='invitado' > BIENVENIDO: <a href="{{ url('/Perfil') }}"> {{ Auth::user()->name }} </a> </p> 
+                <p id='invitado' > BIENVENIDO: {{ Auth::user()->name }} </a> </p> 
                 @endif
                 <br>      
                 <h2>Encuentra y crea tus playlist favoritos en un solo click</h2>     
@@ -52,12 +52,27 @@
             </section> 
             
             <br><br>
+            @php
+
+function convertYoutube($string) {
+  return preg_replace(
+    "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+    "<iframe width=\"560\" height=\"390\" src=\"//www.youtube.com/embed/$2?autoplay=1&rel=0&showinfo=0&controls=1\" allowfullscreen></iframe>",
+    $string
+  );
+}      
+@endphp
+   
+
 
             <div id="containergeneral">
                 <hr color="dodgerblue" size=1>
             <div id="textovideo">
                          <h5 id="videosemana">Video de la semana.</h5>
-                <iframe class="ytb-embed" width="560" height="390" src="https://www.youtube.com/embed/-luZrricHSY?autoplay=1&rel=0&showinfo=0&controls=1" frameborder="0" allowfullscreen></iframe>
+                          
+                @php
+                echo convertYoutube($text);
+                @endphp
             </div>
             
             <br>
