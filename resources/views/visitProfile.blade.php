@@ -43,35 +43,27 @@ win = window.open(mypage,myname,settings)
                 </form>           
             </section>   
 
+               @foreach($visita as $visit)
             <section id="portada">
-                <img src="upload/{{ Auth::user()->Banner_Image }}">       
-            </section>            
+                
+                   <img src="upload/{{ $visit->Banner_Image }}">         
+            </section>     
+
             <section id="batman">
-                <div class="foto">
-                   <img src="upload/{{ Auth::user()->Personal_Image }}" height="200" width="200" class="imagen" />                                
+                <div class="foto">                 
+                   <img src="upload/{{ $visit->Personal_Image }}"height="200" width="200" class="imagen" />                                                  
                 </div>
             </section>
-           
-            <div class="usertext">                
-                <h1>¡Hola de nuevo {{ Auth::user()->name }} ! </h1>
+
+            <div class="usertext">                     
+                   <h1>Bienvenido al Perfil de : {{$visit->name}}</h1>
             </div> 
+            @endforeach 
 
             <p id="recuerda">¡Recuerda que puedes empezar tu nueva experiencia Premium en tan solo unos pasos!</p>
 
             
-             @if (Auth::guest())
-             @else
-                <hr color="dodgerblue" size=1>
-                <div class="menudes">
-                    <a href="editM">Administrar Grabaciones</a>
-                    <a href="uploadM">Subir Contenido</a>
-                    <a href="EditPi">Edicion de Imagenes Perfil</a>
-                    <a href="editData">Edicion de Datos</a>
-                    <a href="EditPi">Carrito de Compras</a>
-                    <a href="EditPi">Reportes</a>
-                    <div class="marca"></div>
-                </div>
-                @endif
+
 		<p id="idp" hidden="true" value="0">idm</p>
 
 <br>
@@ -88,12 +80,7 @@ win = window.open(mypage,myname,settings)
                         <h5>{{$lista->Nombre}}</h5> 
                     </div>
                    @endforeach
-
-                        <div class="info-generos">
-                         <a href="{{url('/makelist')}}"><img src="IMG/list1.jpg" alt=""></a>
-                         <h5>Agregar Nueva Lista</h5> 
-                         </div>
-                         </div>   
+ 
               <hr color="dodgerblue" size=1>
 </section>
 
@@ -131,10 +118,12 @@ win = window.open(mypage,myname,settings)
 <!--     ----------------------------------------------------------------------------------------------------------------------     -->
 
 <!--<form  name='comenta' action="jsp/comenta.php" method="post" >-->
-<form  name='comenta' action="{{ url('commentpro') }}" method="post" >
+<form  name='comenta' action="{{ url('commentvi') }}" method="post" >
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <section id="comentarios" style="display:inline-block">
-                         
+        @foreach($visita as $visit)
+        <input type="hidden" name="idvisita" value="{{$visit->id}}">                 
+        @endforeach
         <div class="seccionComenta" style="display:inline-block">
             <h6>Caja De Comentarios</h6>                  
             <textarea class="txaCom" name='comentario' rows='15' cols='40' placeholder="Deja un comentario a Invitado ..."></textarea>

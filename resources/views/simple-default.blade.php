@@ -10,17 +10,11 @@ ul.pagination li {display: inline;}
 
 ul.pagination li a {
     color: black;
-    float: left;
     padding: 8px 16px;
     text-decoration: none;
     border-radius: 5px;
 }
 
-ul.pagination li a.active {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
-}
 
 ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 
@@ -30,7 +24,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 <ul class="pagination">
     <!-- Previous Page Link -->
     @if ($paginator->onFirstPage())
-        <li class="disabled"><span>&laquo;</span></li>
+        <li ><span>&laquo;</span></li>
     @else
         <li><a href="{{ $paginator->previousPageUrl() }}" rel="prev">&laquo;</a></li>
     @endif
@@ -39,7 +33,7 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     @foreach ($elements as $element)
         <!-- "Three Dots" Separator -->
         @if (is_string($element))
-            <li class="disabled"><span>{{ $element }}</span></li>
+            <li ><span>{{ $element }}</span></li>
         @endif
 
         <!-- Array Of Links -->
@@ -58,6 +52,6 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
     @if ($paginator->hasMorePages())
         <li><a href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a></li>
     @else
-        <li class="disabled"><span>&raquo;</span></li>
+        <li ><span>&raquo;</span></li>
     @endif
 </ul>

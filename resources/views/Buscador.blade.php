@@ -1,10 +1,3 @@
-<%-- 
-    Document   : Buscador
-    Created on : 14/05/2016, 07:36:30 AM
-    Author     : Yukine Sugiura
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -19,8 +12,29 @@
         <link rel="stylesheet" href="CSS/styleSupport.css">
         <!--[if lte IE 8]><script src="js/respond.js"></script><![endif]-->
         <script src="js/responsive-nav.js"></script>
+<script language="javascript">
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+win = window.open(mypage,myname,settings)             
+}
+</script>
+
     </head>
-    
+   
+
+<style>
+
+div#tabla_dos{
+width:300px;
+position:relative;
+float: left;
+height: auto;
+}
+</style>
+
     <body>
         <main>
         <div class="contieneBusqueda">
@@ -29,10 +43,6 @@
                 </form>
 
 
-            <div class="carritodecomprita">
-			     <a class="home" href="https://google.com/" title="Volver a Inicio"><i class="icon-home"></i></a>
-			     <span class="navigation-pipe">&gt;</span>			
-            </div>
 
             <div class="songsky"> 
                 <h3>SONGSKY</h3>
@@ -41,32 +51,105 @@
             <div class="resumen">
                 <caption>Musica a tu estilo</caption>
             </div>
-        
+            <div>
             <table id="busqueda">
-                <form action="#" method="get">	
-                    <input type="search" placeholder="Audio o Artista" class="busqMarq">		    	
-                    <i class="icon-search" ></i>
-                </form>  
+                <form action="{{url('busqueda')}}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input name="BUSCAR" type="search" placeholder="Audio o Artista"/>
+                        <i class="icon-search" ></i>
+                </form>           
+            </table>
+            </div>
+
+            <div id="tabla_uno">
+            <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">             
+
+                <tr>
+                    <th><i class="icon-user">Canciones:</i></th>
+                    <th></th>
+                    <th></th>
+                </tr>
             </table>
 
-            <header>
-                <div class="contenedor">
-                    <h1 class="icon-cloud-1">SONGSKY</h1>
-                    <div id="nav">
-                        <ul>
-                            <li><a href="index.php">Home</a></li> 
-                            <li><a href="Login.php">Login</a></li>
-                            <li><a href="registro.php">Registrate</a></li>
-                            <li><a href="#">About</a></li>
-                        </ul>
-                    </div>  
-                    <button id="nav-toggle">Menu</button>
-                </div>    
-            </header>
+             @foreach ($Music as $musica)
+
+
+             <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                      
+                <tr>
+                    <th><a href="repind?id={{$musica->id}}" title="PlayList" onclick="NewWindow(this.href,'name','320','500','yes');return false">{{ $musica->Nombre}}</a></th>
+                </tr>
+             </table>
+
+
+      @endforeach 
+      <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
+                <tr>
+                    <th>{!! $Music->links('simple-default') !!}</th>
+                </tr>
+            </table>
+            </div>
+
+            <div id="tabla_dos">
+            <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">             
+
+                <tr>
+                    <th><i class="icon-user">Usuarios:</i></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+
+             @foreach ($usersearch as $busq)
+
+             @if($busq->id == 1)
             
-        </section>
-        </div>
-        </main>
+            @else
+            <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
+                <tr>
+                    <th><a href="vperfil?hash={{$busq->id}}">{{ $busq->name}}</th>
+                </tr>
+             </table>
+             @endif
+
+      @endforeach 
+      <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
+                <tr>
+                    <th>{!! $Music->links('simple-default') !!}</th>
+                </tr>
+            </table>
+            </div>
+            <div style="clear: both;"></div> 
+</main>
+
+           <header>
+            <div class="contenedor">
+                <h1 class="icon-cloud-1">SONGSKY</h1>
+                <div id="nav">
+                  <ul>
+                    <li><a href="{{ url('/') }}">Home</a></li> 
+                    @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a <a href="{{ url('/register') }}">Registrate</a></li>
+                    @else
+                            <li><a href="{{ url('/Perfil') }}">Perfil</a></li>
+                            <li><a href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a></li>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                    @endif
+                    <li><a href="#">About</a></li>
+                  </ul>
+                </div>  
+                <button id="nav-toggle">Menu</button>
+            </div>    
+        </header>
+        
+
         
         <footer>
             <div class="containerfooter">
@@ -80,7 +163,8 @@
                     <a class="icon-vimeo" href="#"></a>
                 </div>
             </div>    
-        </footer>
+        </footer>  
+
         
         <script>
             var navigation = responsiveNav("#nav", {
