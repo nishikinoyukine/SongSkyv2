@@ -14,6 +14,16 @@ class usersseeder extends Seeder
     public function run()
     {
          DB::table('users')->insert([
+            'name' => 'Guest',
+            'email' => 'Guest@songsky.com',
+            'password' => bcrypt('secret'),
+            'Personal_Image' => 'tumblr_of5izeNe2S1tm1dgio2_540 (1).gif',
+            'Banner_Image' => 'maki_chan_by_kazenokaze-d7kpy78.png',
+            'Fecha_Nacimiento' => '2016-25-11',
+            'Sexo' => '1',
+        ] );
+
+         DB::table('users')->insert([
             'name' => 'yukine',
             'email' => 'nishikino@songsky.com',
             'password' => bcrypt('secret'),

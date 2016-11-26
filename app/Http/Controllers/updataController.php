@@ -16,6 +16,7 @@ use App\listacon;
 
 use App\publicidad;
 
+use App\comentario;
 
 use Auth;
 use View;
@@ -150,6 +151,19 @@ $publi->url_banner = $nombre ;
 $publi->save();
 return redirect('/');
 
+}
+
+public function comentpro(request $request){
+$comenta= $request->input('comentario');
+$com = new comentario();
+// Seteamos las propiedades
+$com->comentario = $comenta ;
+$com->user_id = Auth::user()->id ;
+$com->com_user = Auth::user()->id ;
+ 
+// Guardamos en la base de datos (equivalente al flush de Doctrine)
+$com->save();
+return back();
 }
 
 }

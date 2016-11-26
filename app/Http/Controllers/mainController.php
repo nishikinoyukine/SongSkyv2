@@ -16,6 +16,8 @@ use App\listacon;
 
 use App\publicidad;
 
+use App\comentario;
+
 use Auth;
 
 use View;
@@ -38,10 +40,11 @@ class mainController extends Controller
 
 public function songpublicityperfil()
 {
+	$posts = User::join('comentario','users.id', '=', 'comentario.com_user')->where('user_id',Auth::user()->id)->orderby('comentario.id', 'desc')->paginate(2);
 	$listas = listarep::take(5)->where('user_id',Auth::user()->id)->orderby('id', 'desc')->get();
     $items = Musica::take(6)->orderby('id', 'desc')->get();
    //$items = Musica::all();
-    return View::make('UserProfile', compact('items',$items),compact('listas',$listas));
+    return View::make('UserProfile', compact('items',$items),compact('listas',$listas))->with(array('posts' => $posts, 'titulo' => 'Paginación con laravel'));
 }
 
 public function fillreproductor(request $request){

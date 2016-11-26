@@ -11,10 +11,6 @@
 |
 */
 
-//Route::get('reproductor', function () {
-    //return view('repmusica');
-//});
-
 Route::get('/EditPi', function () {
     return view('imgPerfil');
 });
@@ -37,6 +33,7 @@ Route::get('/editData', function () {
   //  return view('Administrador');
 //});
 
+Route::post('commentpro', 'updataController@comentpro');
 Route::post('addpub', 'updataController@uploadpub');
 Route::get('SUamin', 'updataController@loadadmin');
 Route::get('/reproductor', 'mainController@fillreproductor');

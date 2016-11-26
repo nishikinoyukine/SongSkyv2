@@ -129,13 +129,14 @@ win = window.open(mypage,myname,settings)
 <!--     ----------------------------------------------------------------------------------------------------------------------     -->
 
 <!--<form  name='comenta' action="jsp/comenta.php" method="post" >-->
-<form  name='comenta' action="index.php" method="post" >
+<form  name='comenta' action="{{ url('commentpro') }}" method="post" >
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
     <section id="comentarios" style="display:inline-block">
                          
         <div class="seccionComenta" style="display:inline-block">
             <h6>Caja De Comentarios</h6>                  
             <textarea class="txaCom" name='comentario' rows='15' cols='40' placeholder="Deja un comentario a Invitado ..."></textarea>
-            <a href="#" class="button blue medium radius">
+            <a class="button blue medium radius">
 	           <span  class="icon-comment-empty" onclick="comenta.submit()">Enviar</span>        
             </a>
         </div> 
@@ -143,12 +144,19 @@ win = window.open(mypage,myname,settings)
 
 <!--     ----------------------------------------------------------------------------------------------------------------------     -->
         
-        <br>
+</form> 
+
+<br>
 
         <div class="listacomentarios"  style="display:inline-block">
-            <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">             
+          
+          @foreach ($posts as $post)
+
+
+          <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">             
+
                 <tr>
-                    <th><i class="icon-user">Anony1</i></th>
+                    <th><i class="icon-user">{{ $post->name }}</i></th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -156,26 +164,22 @@ win = window.open(mypage,myname,settings)
 
             <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
                 <tr>
-                    <th>Comento algo Gracioso</th>
+                    <th>{{ $post->comentario }}</th>
                 </tr>
             </table>
 
-            <table class="usercomentario" width="40%" cellspacing="10" cellpadding="2">        
-                <tr>
-                    <th><i class="icon-user">Anony2</i></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </table>
 
-            <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
-                <tr>
-                    <th>soy un anonimo xD</th>
-                </tr>
-            </table>            
+      @endforeach 
+
+         
         </div>    
     </section>
-</form> 
+    
+    <table class="publicacion" width width="40%" cellspacing="10" cellpadding="2">                                         
+                <tr>
+                    <th>{!! $posts->links('simple-default') !!}</th>
+                </tr>
+            </table>
 
 <br><br>
 
