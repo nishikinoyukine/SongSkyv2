@@ -45,7 +45,8 @@
             </section>
             
             <section id="busqueda">             
-                <form action="#" method="get">
+                <form action="{{url('busqueda')}}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input name="BUSCAR" type="search" placeholder="Audio o Artista"/>
                         <i class="icon-search" ></i>
                 </form>           
